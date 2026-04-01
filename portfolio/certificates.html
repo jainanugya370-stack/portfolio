@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Certificates - Anugya Jain</title>
+<link rel="stylesheet" href="assets/css/style.css" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <nav class="container" aria-label="Primary navigation">
+    <div class="logo" tabindex="0" onclick="window.location.href='index.html'">
+      <span class="logo-text">Anugya</span>
+      <span class="logo-accent">.</span>
+    </div>
+    <div class="nav-links" role="menubar">
+      <a href="index.html" role="menuitem">Home</a>
+      <a href="about.html" role="menuitem">About</a>
+      <a href="experience.html" role="menuitem">Experience</a>
+      <a href="projects.html" role="menuitem">Projects</a>
+      <a href="certificates.html" class="active" role="menuitem">Certificates</a>
+      <a href="contact.html" role="menuitem">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+        <i class="fas fa-moon"></i>
+      </button>
+      <a href="resume.pdf" class="resume-btn" target="_blank">
+        <i class="fas fa-file-pdf"></i>
+        Resume
+      </a>
+      <div class="mobile-menu-toggle" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main class="page-content">
+  <section class="page-header">
+    <div class="container">
+      <h1 class="page-title"><span class="title-accent">Certificates</span> & Achievements</h1>
+      <p class="page-subtitle">Professional certifications and accomplishments</p>
+    </div>
+  </section>
+
+  <section id="certificates" class="certificates" aria-labelledby="certificates-title">
+    <div class="container">
+      <div class="certificates-grid">
+        
+        <div class="certificate-card">
+          <div class="certificate-icon">
+            <i class="fas fa-building"></i>
+          </div>
+
+          <h3 class="certificate-title">Web Development Internship</h3>
+
+          <p class="certificate-issuer">NullClass</p>
+
+          <p class="certificate-description">
+            Successfully completed a Web Development Internship focused on building
+            a full-stack seat booking application (BookMySeat), involving frontend UI,
+            backend logic, database integration, and payment workflow simulation.
+          </p>
+
+          <div class="certificate-skills">
+            <span class="cert-tag">HTML</span>
+            <span class="cert-tag">CSS</span>
+            <span class="cert-tag">JavaScript</span>
+            <span class="cert-tag">Django</span>
+            <span class="cert-tag">Python</span>
+            <span class="cert-tag">MySQL</span>
+          </div>
+
+          <button
+            class="view-certificate-btn"
+            onclick="openCertificateModal('NullClass-Web-Development-Internship-Certificate.png', 
+            'Web Development Internship – NullClass (BookMySeat Project)')">
+            <i class="fas fa-eye"></i>
+            View Certificate
+          </button>
+        </div>
+
+        <div class="certificate-card">
+          <div class="certificate-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3 class="certificate-title">Database Design & Programming</h3>
+          <p class="certificate-issuer">Oracle Academy</p>
+          <p class="certificate-description">Comprehensive training in database design principles, SQL programming, and PL/SQL development.</p>
+          <div class="certificate-skills">
+            <span class="cert-tag">SQL</span>
+            <span class="cert-tag">PL/SQL</span>
+            <span class="cert-tag">Database Design</span>
+          </div>
+          <button class="view-certificate-btn" onclick="openCertificateModal('oracle.png', 'Database Design & Programming - Oracle Academy')">
+            <i class="fas fa-eye"></i>
+            View Certificate
+          </button>
+        </div>
+
+        <div class="certificate-card">
+          <div class="certificate-icon">
+            <i class="fab fa-python"></i>
+          </div>
+          <h3 class="certificate-title">Python Programming Essentials</h3>
+          <p class="certificate-issuer">Cisco Networking Academy</p>
+          <p class="certificate-description">Complete Python programming course covering fundamentals and advanced concepts (Parts 1 & 2).</p>
+          <div class="certificate-skills">
+            <span class="cert-tag">Python</span>
+            <span class="cert-tag">Programming</span>
+            <span class="cert-tag">Data Structures</span>
+          </div>
+          <button class="view-certificate-btn" onclick="openCertificateModal('python1.png', 'Python Programming Essentials - Cisco Networking Academy')">
+            <i class="fas fa-eye"></i>
+            View Certificate
+          </button>
+        </div>
+
+        <div class="certificate-card">
+          <div class="certificate-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3 class="certificate-title">Azure AI Fundamentals</h3>
+          <p class="certificate-issuer">Microsoft</p>
+          <p class="certificate-description">Foundational knowledge of artificial intelligence concepts and Microsoft Azure AI services.</p>
+          <div class="certificate-skills">
+            <span class="cert-tag">AI</span>
+            <span class="cert-tag">Azure</span>
+            <span class="cert-tag">Cloud Computing</span>
+          </div>
+          <button class="view-certificate-btn" onclick="openCertificateModal('azure.png', 'Azure AI Fundamentals - Microsoft')">
+            <i class="fas fa-eye"></i>
+            View Certificate
+          </button>
+        </div>
+
+        <div class="certificate-card">
+          <div class="certificate-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3 class="certificate-title">Data Analytics & Algorithms</h3>
+          <p class="certificate-issuer">NPTEL</p>
+          <p class="certificate-description">Advanced course on data analytics techniques and algorithm optimization strategies.</p>
+          <div class="certificate-skills">
+            <span class="cert-tag">Data Analytics</span>
+            <span class="cert-tag">Algorithms</span>
+            <span class="cert-tag">Optimization</span>
+          </div>
+          <button class="view-certificate-btn" onclick="openCertificateModal('daa.jpg', 'Data Analytics & Algorithms - NPTEL Elite')">
+            <i class="fas fa-eye"></i>
+            View Certificate
+          </button>
+        </div>
+
+        <div class="certificate-card">
+          <div class="certificate-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3 class="certificate-title">Data Structures & Algorithms</h3>
+          <p class="certificate-issuer">NPTEL (Elite Certification)</p>
+          <p class="certificate-description">Comprehensive study of data structures and algorithms implementation using Java programming.</p>
+          <div class="certificate-skills">
+            <span class="cert-tag">Java</span>
+            <span class="cert-tag">Data Structures</span>
+            <span class="cert-tag">Algorithms</span>
+          </div>
+          <button class="view-certificate-btn" onclick="openCertificateModal('dsa.png', 'Data Structures & Algorithms - NPTEL')">
+            <i class="fas fa-eye"></i>
+            View Certificate
+          </button>
+        </div>
+
+        <div class="certificate-card">
+          <div class="certificate-icon">
+            <i class="fas fa-robot"></i>
+          </div>
+          <h3 class="certificate-title">Introduction to Machine Learning</h3>
+          <p class="certificate-issuer">Kaggle</p>
+          <p class="certificate-description">Foundational machine learning concepts and practical implementation techniques.</p>
+          <div class="certificate-skills">
+            <span class="cert-tag">Machine Learning</span>
+            <span class="cert-tag">Python</span>
+            <span class="cert-tag">Data Science</span>
+          </div>
+          <button class="view-certificate-btn" onclick="openCertificateModal('kaggle.png', 'Introduction to Machine Learning - Kaggle')">
+            <i class="fas fa-eye"></i>
+            View Certificate
+          </button>
+        </div>
+
+        <div class="certificate-card">
+        <div class="certificate-icon">
+          <i class="fas fa-brain"></i>
+        </div>
+        <h3 class="certificate-title">Introduction to Machine Learning</h3>
+        <p class="certificate-issuer">NPTEL (Elite Certification)</p>
+        <p class="certificate-description">
+          Elite-certified NPTEL course covering fundamental machine learning concepts including supervised and unsupervised learning, model evaluation, and real-world applications.
+        </p>
+        <div class="certificate-skills">
+          <span class="cert-tag">Machine Learning</span>
+          <span class="cert-tag">Supervised Learning</span>
+          <span class="cert-tag">Unsupervised Learning</span>
+        </div>
+        <button class="view-certificate-btn" onclick="openCertificateModal('ml.png', 'Introduction to Machine Learning - NPTEL Elite')">
+          <i class="fas fa-eye"></i>
+          View Certificate
+        </button>
+      </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="certificateModal" class="certificate-modal">
+  <div class="certificate-modal-content">
+    <div class="certificate-modal-header">
+      <h3 id="certificateModalTitle">Certificate</h3>
+      <button class="certificate-modal-close" onclick="closeCertificateModal()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="certificate-modal-body">
+      <img id="certificateImage" src="" alt="Certificate" class="certificate-modal-image">
+    </div>
+    <div class="certificate-modal-footer">
+      <button class="btn-primary" onclick="downloadCertificate()">
+        <i class="fas fa-download"></i>
+        Download Certificate
+      </button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-text">
+        <p>&copy; 2025 Anugya Jain. All rights reserved.</p>
+        <p>Built with ❤️ and lots of ☕</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/anugya-jain-21744b290/" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/Anugyajain27" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="mailto:anugya.jain27@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

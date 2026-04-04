@@ -80,9 +80,3 @@ Open index.html in your browser
 
 * 📧 Email: [jainanugya370@gmail.com](mailto:jainanugya370@gmail.com)
 * 💼 LinkedIn: https://www.linkedin.com/in/anugya-jain-21744b290/
-
----
-
-## ⭐ Show Your Support
-
-If you like this portfolio, consider giving it a ⭐ on GitHub!

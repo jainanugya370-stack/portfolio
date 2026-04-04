@@ -74,15 +74,6 @@ Open index.html in your browser
 
 ---
 
-## 🔮 Future Enhancements
-
-* 🌐 Deployment with custom domain
-* 📊 Analytics integration
-* 🧠 More interactive UI/UX improvements
-* 🔗 Live project demos integration
-
----
-
 ## 👩‍💻 Author
 
 **Anugya Jain**

@@ -1,5 +1,5 @@
 // Certificate Modal Functions
-let currentCertificateImage = '';
+var currentCertificateImage = '';
 
 function openCertificateModal(imageSrc, title) {
   const modal = document.getElementById('certificateModal');

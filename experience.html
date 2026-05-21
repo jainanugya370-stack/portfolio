@@ -7,8 +7,362 @@
 <link rel="stylesheet" href="assets/css/style.css" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+
+  /* ══════════════════════════════════
+     EDUCATION
+  ══════════════════════════════════ */
+  .education-section { padding: 4rem 0 2rem; }
+
+  .education-card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .education-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(37,99,235,0.2);
+  }
+
+  .edu-icon {
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    background: var(--accent-color);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: #ffffff;
+  }
+
+  .edu-body { flex: 1; }
+
+  .edu-university {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem;
+  }
+  .edu-degree {
+    color: var(--accent-color);
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 0 0 0.5rem;
+  }
+  .edu-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .edu-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+  /* CGPA badge – hardcoded blue+white so it never disappears */
+  .edu-badges { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+  .edu-badge-cgpa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.42rem 1rem;
+    border-radius: 20px;
+    line-height: 1;
+  }
+  .edu-badge-cgpa * { color: #ffffff; }
+
+  .edu-achievements-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    margin: 0 0 0.75rem;
+  }
+  .edu-achievements-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem 1.5rem;
+  }
+
+  /* Achievement row: real HTML dot so ::before isn't needed */
+  .edu-achievement-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  /* The dot is a real <span> inside the HTML */
+  .edu-dot {
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    min-width: 9px;
+    min-height: 9px;
+    border-radius: 50%;
+    background: #2563eb;          /* hardcoded blue – always visible */
+    flex-shrink: 0;
+  }
+
+  /* ══════════════════════════════════
+     PATENTS
+  ══════════════════════════════════ */
+  .patents-section { padding: 2rem 0; }
+
+  .patent-card {
+    background: var(--card-bg);
+    border: 2px solid var(--accent-color);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .patent-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(37,99,235,0.2);
+  }
+
+  .patent-top-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+  }
+  /* Patent badge – hardcoded so it never disappears */
+  .patent-status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    background: #2563eb;
+    color: #ffffff;
+    white-space: nowrap;
+  }
+  .patent-published-label {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .patent-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+  }
+  .patent-meta {
+    display: flex;
+    gap: 1.2rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+  .patent-meta span { display: flex; align-items: center; gap: 0.35rem; }
+
+  .patent-description {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .patent-tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.4rem;
+  }
+
+  /* Two buttons side-by-side, equal width */
+  .patent-actions {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+  }
+
+  /* "View Full Paper" – outlined, turns solid blue on hover */
+  .patent-btn-pdf {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: 2px solid #2563eb;
+    color: #2563eb;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.25s, color 0.25s;
+    text-decoration: none;
+  }
+  .patent-btn-pdf:hover {
+    background: #2563eb;
+    color: #ffffff;
+  }
+
+  /* "External Link" – always solid blue, white text */
+  .patent-btn-ext {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: #2563eb;
+    border: 2px solid #2563eb;
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .patent-btn-ext:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* ══════════════════════════════════
+     PATENT MODAL
+  ══════════════════════════════════ */
+  .patent-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  .patent-modal.active { display: flex; }
+
+  .patent-modal-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 860px;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 0;
+  }
+  .patent-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 1.75rem;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+  }
+  .patent-modal-header h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    max-width: 88%;
+    line-height: 1.3;
+    margin: 0;
+  }
+  .patent-modal-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+    transition: color 0.2s;
+    flex-shrink: 0;
+  }
+  .patent-modal-close:hover { color: var(--text-primary); }
+
+  /* PDF viewer area */
+  .patent-pdf-viewer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .patent-pdf-frame {
+    flex: 1;
+    width: 100%;
+    border: none;
+    display: block;
+  }
+  /* No-PDF placeholder shown when iframe src is empty */
+  .patent-pdf-placeholder {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+    padding: 2rem;
+    text-align: center;
+  }
+  .patent-pdf-placeholder i {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    opacity: 0.6;
+  }
+  .patent-pdf-placeholder p {
+    font-size: 0.95rem;
+    margin: 0;
+    line-height: 1.6;
+  }
+  .patent-pdf-placeholder code {
+    background: var(--border-color);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--accent-color);
+  }
+
+  .patent-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1rem 1.75rem;
+    border-top: 1px solid var(--border-color);
+    flex-shrink: 0;
+  }
+
+  /* ══════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════ */
+  @media (max-width: 640px) {
+    .education-card    { flex-direction: column; gap: 1.25rem; }
+    .edu-achievements-grid { grid-template-columns: 1fr; }
+    .patent-actions    { flex-direction: column; }
+  }
+</style>
 </head>
 <body>
+
 <header>
   <nav class="container" aria-label="Primary navigation">
     <div class="logo" tabindex="0" onclick="window.location.href='index.html'">
@@ -41,6 +395,7 @@
 </header>
 
 <main class="page-content">
+
   <section class="page-header">
     <div class="container">
       <h1 class="page-title">My <span class="title-accent">Experience</span></h1>
@@ -48,19 +403,162 @@
     </div>
   </section>
 
+  <!-- ╔════════════════╗ -->
+  <!-- ║  EDUCATION     ║ -->
+  <!-- ╚════════════════╝ -->
+  <section id="education" class="education-section" aria-labelledby="education-title">
+    <div class="container">
+      <h2 class="section-title" id="education-title">
+        <span class="title-accent">Education</span>
+      </h2>
+
+      <div class="education-card">
+        <div class="edu-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <div class="edu-body">
+          <h3 class="edu-university">Manipal University Jaipur</h3>
+          <p class="edu-degree">B.Tech. in Computer Science &amp; Engineering (AI/ML)</p>
+
+          <div class="edu-meta">
+            <span><i class="far fa-calendar-alt"></i>&nbsp;2023 – 2027</span>
+            <span><i class="fas fa-map-marker-alt"></i>&nbsp;Jaipur, India</span>
+          </div>
+
+          <!-- CGPA — real HTML, hardcoded blue -->
+          <div class="edu-badges">
+            <span class="edu-badge-cgpa">
+              <i class="fas fa-award"></i>
+              CGPA: 9.25 / 10
+              <span style="font-weight:400; opacity:0.9;">(till 6th sem)</span>
+            </span>
+          </div>
+
+          <p class="edu-achievements-title">Key Achievements</p>
+
+          <!-- Real <span> dots — no ::before needed -->
+          <div class="edu-achievements-grid">
+            <span class="edu-achievement-item">
+              <span class="edu-dot"></span>4× Dean's List Awards
+            </span>
+            <span class="edu-achievement-item">
+              <span class="edu-dot"></span>3× SCSE Awards for Extracurricular Excellence
+            </span>
+            <span class="edu-achievement-item">
+              <span class="edu-dot"></span>Published 1 Patent
+            </span>
+            <span class="edu-achievement-item">
+              <span class="edu-dot"></span>Top 15 – HackScky 25, MIT Bangalore (500+ teams)
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════════════╗ -->
+  <!-- ║   PATENTS      ║ -->
+  <!-- ╚════════════════╝ -->
+  <section id="patents" class="patents-section" aria-labelledby="patents-title">
+    <div class="container">
+      <h2 class="section-title" id="patents-title">
+        <span class="title-accent">Patents</span> &amp; Research
+      </h2>
+
+      <div class="patent-card">
+        <div class="patent-top-row">
+          <span class="patent-status-badge">
+            <i class="fas fa-certificate"></i>&nbsp;Patent
+          </span>
+          <span class="patent-published-label">Published</span>
+        </div>
+
+        <h3 class="patent-title">Accessibility Assistant for Visually Impaired</h3>
+
+        <div class="patent-meta">
+          <span><i class="far fa-calendar-alt"></i>&nbsp;Jan 2025 – Aug 2025</span>
+          <span><i class="fas fa-map-marker-alt"></i>&nbsp;India</span>
+        </div>
+
+        <p class="patent-description">
+          An AI-powered assistance system for visually impaired users that combines OCR,
+          real-time object detection, AR-based navigation, and voice-guided feedback to enhance
+          accessibility and independent navigation. The system leverages YOLOv4 for precise
+          object detection, ARKit and ARCore for augmented reality overlays, and an intelligent
+          voice feedback module to provide contextual audio guidance in real time.
+        </p>
+
+        <div class="patent-tech-tags">
+          <span class="tech-tag">YOLOv4</span>
+          <span class="tech-tag">ARKit</span>
+          <span class="tech-tag">ARCore</span>
+          <span class="tech-tag">OCR</span>
+          <span class="tech-tag">Computer Vision</span>
+          <span class="tech-tag">AI / ML</span>
+          <span class="tech-tag">Accessibility</span>
+        </div>
+
+        <div class="patent-actions">
+          <button class="patent-btn-pdf" onclick="openPatentModal()">
+            <i class="fas fa-file-alt"></i>&nbsp;View Full Paper
+          </button>
+          <a
+            href="https://patents.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="patent-btn-ext"
+          >
+            <i class="fas fa-external-link-alt"></i>&nbsp;External Link
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ╔════════════════════╗ -->
+  <!-- ║  WORK EXPERIENCE   ║ -->
+  <!-- ╚════════════════════╝ -->
   <section id="experience" class="experience" aria-labelledby="experience-title">
     <div class="container">
+      <h2 class="section-title" id="experience-title">
+        Work <span class="title-accent">Experience</span>
+      </h2>
+
       <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3 class="timeline-title">Research Intern</h3>
+              <span class="timeline-company">IIT Delhi</span>
+              <span class="timeline-date">May 2026 – Present</span>
+            </div>
+            <p class="timeline-description">
+              Selected for a Research Internship at Indian Institute of Technology Delhi under the
+              5G–6G Research Translation Project, focusing on next-generation wireless communication
+              technologies, AI-driven networking, and intelligent communication systems. Working on
+              advanced concepts in 5G/6G architecture, edge intelligence, network optimization, and
+              emerging telecom research for future-ready communication solutions.
+            </p>
+            <div class="timeline-skills">
+              <span class="skill-tag">5G/6G Networks</span>
+              <span class="skill-tag">Wireless Communication</span>
+              <span class="skill-tag">AI-Driven Networking</span>
+            </div>
+          </div>
+        </div>
+
         <div class="timeline-item">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
             <div class="timeline-header">
               <h3 class="timeline-title">Web Development Intern</h3>
               <span class="timeline-company">NullClass Pvt. Ltd. (Remote)</span>
-              <span class="timeline-date">Aug 2025 – Present</span>
+              <span class="timeline-date">Aug 2025 – Oct 2026</span>
             </div>
             <p class="timeline-description">
-              Integrating dynamic backend with a responsive frontend, ensuring smooth user experience 
+              Integrating dynamic backend with a responsive frontend, ensuring smooth user experience
               for browsing, booking, and payment flow simulations.
             </p>
             <div class="timeline-skills">
@@ -81,8 +579,8 @@
             </div>
             <div class="achievement-badge">Top 15 Position</div>
             <p class="timeline-description">
-              Secured a top 15 position among 500+ teams by developing an innovative AI platform 
-              to combat misinformation and deepfakes. Integrated heat map visualization into video 
+              Secured a top 15 position among 500+ teams by developing an innovative AI platform
+              to combat misinformation and deepfakes. Integrated heat map visualization into video
               analysis pipeline, reducing manual review time by 5 hours per video.
             </p>
             <div class="timeline-skills">
@@ -102,7 +600,7 @@
               <span class="timeline-date">Aug 2024 – May 2025</span>
             </div>
             <p class="timeline-description">
-              Managed a team of designers to deliver impactful visuals across events and campaigns, 
+              Managed a team of designers to deliver impactful visuals across events and campaigns,
               resulting in a measurable rise in social media reach and student participation.
             </p>
             <div class="timeline-skills">
@@ -112,10 +610,67 @@
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
+
 </main>
+
+<!-- ═══════ PATENT MODAL ═══════ -->
+<div id="patentModal" class="patent-modal" role="dialog" aria-modal="true" aria-labelledby="patentModalTitle">
+  <div class="patent-modal-content">
+
+    <div class="patent-modal-header">
+      <h3 id="patentModalTitle">Accessibility Assistant for Visually Impaired — Full Paper</h3>
+      <button class="patent-modal-close" onclick="closePatentModal()" aria-label="Close">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+
+    <!-- PDF viewer: iframe loads when PDF is present, placeholder shown otherwise -->
+    <div class="patent-pdf-viewer" id="pdfViewer">
+
+      <iframe
+        id="patentPdfFrame"
+        class="patent-pdf-frame"
+        src="Patent.pdf"
+        title="Patent Full Paper PDF"
+      ></iframe>
+
+      <!-- Fallback shown if PDF fails to load -->
+      <div class="patent-pdf-placeholder" id="pdfPlaceholder" style="display:none;">
+        <i class="fas fa-file-pdf"></i>
+        <p>PDF not found.<br>
+          Place your patent PDF in the project folder and update the filename to<br>
+          <code>patent-paper.pdf</code>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="patent-modal-footer">
+      <a
+        href="patent-paper.pdf"
+        download
+        class="patent-btn-pdf"
+        style="flex:unset; min-width:160px; text-decoration:none;"
+      >
+        <i class="fas fa-download"></i>&nbsp;Download PDF
+      </a>
+      <a
+        href="https://patents.google.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="patent-btn-ext"
+        style="text-decoration:none; flex:unset; min-width:160px;"
+      >
+        <i class="fas fa-external-link-alt"></i>&nbsp;External Link
+      </a>
+    </div>
+
+  </div>
+</div>
 
 <footer>
   <div class="container">
@@ -140,5 +695,29 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script>
+  function openPatentModal() {
+    document.getElementById('patentModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closePatentModal() {
+    document.getElementById('patentModal').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  // Show placeholder if PDF can't load
+  const pdfFrame = document.getElementById('patentPdfFrame');
+  if (pdfFrame) {
+    pdfFrame.addEventListener('error', function() {
+      pdfFrame.style.display = 'none';
+      document.getElementById('pdfPlaceholder').style.display = 'flex';
+    });
+  }
+  document.getElementById('patentModal').addEventListener('click', function(e) {
+    if (e.target === this) closePatentModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closePatentModal();
+  });
+</script>
 </body>
 </html>

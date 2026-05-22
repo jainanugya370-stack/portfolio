@@ -1985,3 +1985,185 @@ html {
   background: var(--color-primary);
   color: white;
 }
+
+/* =========================
+   RESUME BUTTON
+========================= */
+
+.resume-btn{
+  display:flex;
+  align-items:center;
+  gap:0.55rem;
+
+  padding:0.72rem 1.15rem;
+
+  border-radius:14px;
+
+  background:var(--accent-color);
+
+  color:#ffffff !important;
+
+  font-weight:600;
+
+  text-decoration:none;
+
+  transition:all 0.3s ease;
+
+  border:1px solid transparent;
+
+  white-space:nowrap;
+}
+
+/* Resume Hover */
+
+.resume-btn:hover{
+  transform:translateY(-2px);
+  opacity:0.92;
+}
+
+/* =========================
+   LIGHT THEME FIX
+========================= */
+
+[data-theme="light"] .resume-btn{
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #3b82f6
+  );
+
+  color:#ffffff !important;
+
+  box-shadow:
+    0 4px 14px rgba(59,130,246,0.18);
+}
+
+/* =========================
+   DARK THEME
+========================= */
+
+[data-theme="dark"] .resume-btn{
+  background:linear-gradient(
+    135deg,
+    var(--accent-color),
+    #2563eb
+  );
+
+  color:#ffffff !important;
+
+  box-shadow:
+    0 4px 18px rgba(var(--accent-rgb,59,130,246),0.25);
+}
+/* =========================
+   RESUME DROPDOWN
+========================= */
+
+.resume-dropdown{
+  position:relative;
+}
+
+/* Main Button */
+
+.resume-btn{
+  display:flex;
+  align-items:center;
+  gap:0.55rem;
+
+  padding:0.72rem 1.15rem;
+
+  border-radius:14px;
+
+  background:linear-gradient(
+    135deg,
+    var(--accent-color),
+    #2563eb
+  );
+
+  color:#fff !important;
+
+  font-weight:600;
+
+  text-decoration:none;
+
+  border:none;
+
+  cursor:pointer;
+
+  transition:all 0.3s ease;
+
+  box-shadow:
+    0 4px 14px rgba(var(--accent-rgb,59,130,246),0.18);
+}
+
+.resume-btn:hover{
+  transform:translateY(-2px);
+}
+
+/* Arrow */
+
+.dropdown-arrow{
+  font-size:0.75rem;
+}
+
+/* Dropdown Content */
+
+.resume-dropdown-content{
+  position:absolute;
+
+  top:115%;
+  right:0;
+
+  min-width:210px;
+
+  background:var(--card-bg);
+
+  border:1px solid var(--border-color);
+
+  border-radius:14px;
+
+  overflow:hidden;
+
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(10px);
+
+  transition:all 0.25s ease;
+
+  z-index:1000;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.12);
+}
+
+/* Show Dropdown */
+
+.resume-dropdown:hover .resume-dropdown-content{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+/* Options */
+
+.resume-option{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+
+  padding:0.9rem 1rem;
+
+  text-decoration:none;
+
+  color:var(--text-primary);
+
+  font-size:0.92rem;
+
+  transition:all 0.2s ease;
+}
+
+/* Hover */
+
+.resume-option:hover{
+  background:rgba(var(--accent-rgb,59,130,246),0.08);
+  color:var(--accent-color);
+}
